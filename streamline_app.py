@@ -43,7 +43,7 @@ try:
 except URLError as e:
   streamlit.error()
   
-
+my_cur = my_cnx.cursor()
 my_cur.execute("SELECT fruit_name from fruit_load_list")
 my_data_row = my_cur.fetchall()
 
@@ -55,7 +55,7 @@ def insert_row_snowflake(new_fruit):
     my_cur.execute("insert into fruit_load_list(fruit_name) values ('from streamlit')")
     streamlit.write('Thanks for adding ', add_my_fruit)
     
-my_cur = my_cnx.cursor()
+
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add:')
 
